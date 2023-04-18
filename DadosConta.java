@@ -1,24 +1,24 @@
 import java.util.Scanner;
 
 public class DadosConta {
-    float valorConta = 0f;
-    float transacaoAnterior = 0f;
+    double valorConta = 0;
+    double transacaoAnterior = 0;
     String nomeDono;
-    int identidadeDono;
+    long identidadeDono;
 
-    DadosConta(String nome, int id) {
+    DadosConta(String nome, long id) {
         nomeDono = nome;
         identidadeDono = id;
     }
 
-    void deposito(float montante){
+    void deposito(double montante){
         if(montante > 0){
             valorConta += montante;
             transacaoAnterior = montante;
         }
     }
 
-    void saque(float montante){
+    void saque(double montante){
         if(montante > 0){
             valorConta -= montante;
             transacaoAnterior = montante;
@@ -37,9 +37,9 @@ public class DadosConta {
         }
     }
 
-    void investir(int ano){
-        float taxaJuros = .0876f;
-        float novoValorConta = (valorConta * taxaJuros * ano) + valorConta;
+    void investir(long ano){
+        double taxaJuros = .0876;
+        double novoValorConta = (valorConta * taxaJuros * ano) + valorConta;
         System.out.print("A taxa de juros e de " + taxaJuros*100 + "% e o valor final apos " + ano +
         " anos e de R$" + novoValorConta);
     }
@@ -76,7 +76,7 @@ public class DadosConta {
                         System.out.println("====================================");
                         System.out.println("Digite abaixo o valor do deposito:");
                         
-                        float montante = scanner.nextFloat();
+                        double montante = scanner.nextFloat();
                         deposito(montante);
 
                         System.out.println();
@@ -85,7 +85,7 @@ public class DadosConta {
                         System.out.println("====================================");
                         System.out.println("Digite abaixo o valor do saque:");
                         
-                        float montante2 = scanner.nextFloat();
+                        double montante2 = scanner.nextFloat();
                         saque(montante2);
                         
                         System.out.println();
@@ -99,7 +99,7 @@ public class DadosConta {
                         System.out.println("====================================");
                         System.out.println("Quantos anos pretende investir?");
                         
-                        int ano = scanner.nextInt();
+                        long ano = scanner.nextInt();
                         investir(ano);
                         
                         System.out.println();
@@ -121,4 +121,5 @@ public class DadosConta {
         System.out.println("Saindo...");
     }
 }
+
 
